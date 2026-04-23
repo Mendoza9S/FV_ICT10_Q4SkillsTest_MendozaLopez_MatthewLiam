@@ -1,5 +1,9 @@
-from pyscript import document
+from pyscript import document, display
 import numpy as np
+
+import logging
+logging.getLogger('matplotlib').setLevel(logging.ERROR)
+
 import matplotlib.pyplot as plt
 
 
