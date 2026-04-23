@@ -3,10 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-# Days of the week
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
-# NumPy array for absences
 absences = np.array([0, 0, 0, 0, 0])
 
 
@@ -32,12 +30,10 @@ def submit_attendance():
 def display_graph():
     plt.figure()
 
-    # Simple line graph
     plt.plot(days, absences, marker='o')
 
     plt.title("Weekly Attendance (Absences)")
     plt.xlabel("Day")
     plt.ylabel("Absences")
 
-    # Show graph directly (simpler way)
     plt.show()
