@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Tracker</title>
+
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+
+    <style>
+        body { margin: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #2a73e8; }
+        
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            gap: 50px;
+            padding: 20px;
+        }
+
+        /* Matches the cream-colored card in the sample */
+        .card {
+            background: #fdf2cc; 
+            padding: 30px; 
+            border-radius: 20px; 
+            width: 320px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h2 { color: #e91e63; text-align: center; margin-bottom: 20px; }
+
+        label { display: block; font-weight: bold; margin-bottom: 5px; color: #333; }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        /* Red submit button from sample */
+        .btn-submit {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background: #d32f2f;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover { background: #b71c1c; }
+
+        /* Status bar style */
+        #message {
+            height: 15px;
+            background: #2e7d32;
+            margin-top: 15px;
+            border-radius: 10px;
+            color: white;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        .graph-box {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            min-width: 500px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <div class="card">
+        <h2>Attendance Tracker</h2>
+
+        <label for="day">Select Day</label>
+        <select id="day">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+        </select>
+
+        <label for="absences">Absences</label>
+        <input type="number" id="absences" placeholder="0">
+
+        <button id="submit-btn" class="btn-submit" py-click="handle_submit">Submit</button>
+
+        <div id="message"></div>
+    </div>
+
+    <div class="graph-box">
+        <div id="graph-output"></div>
+    </div>
+</div>
+
+<py-config>
+    packages = ["matplotlib", "numpy"]
+</py-config>
+
+<script type="py" src="main.py"></script>
+
+</body>
+</html>
